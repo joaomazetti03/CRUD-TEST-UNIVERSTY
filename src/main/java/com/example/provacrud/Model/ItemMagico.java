@@ -23,6 +23,10 @@ public class ItemMagico {
         this.defesaItemMagico = defesaItemMagico;
     }
 
+    public ItemMagico() {
+
+    }
+
     public Long getId() {
         return id;
     }
