@@ -2,8 +2,11 @@ package com.example.provacrud.Model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "Character")
+@Table(name = "character")
 public class Character {
 
     @Id
@@ -11,12 +14,16 @@ public class Character {
     private Long id;
     private String characterName;
     private String adventurerName;
-    private int level;
-    private String magicIten;
-    private int attack;
-    private int defense;
 
-    private enum classType {GUERREIRO, MAGO, ARQUEIRO, LADINO, BARDO;}
+    @Enumerated(EnumType.STRING)
+    private CharacterClass characterClass;
+
+    @OneToMany(mappedBy = "character", cascade = CascadeType.ALL)
+    private List<MagicIten> magicItenList = new ArrayList<>();
+
+    private int level;
+    private int attackCharacter;
+    private int defenseCharacter;
 
     public Long getId() {
         return id;
@@ -50,28 +57,28 @@ public class Character {
         this.level = level;
     }
 
-    public String getMagicIten() {
-        return magicIten;
+    public int getAttackCharacter() {
+        return attackCharacter;
     }
 
-    public void setMagicIten(String magicIten) {
-        this.magicIten = magicIten;
-    }
-
-    public int getForca() {
-        return attack;
-    }
-
-    public void setForca(int forca) {
-        this.attack = forca;
+    public void setAttackCharacter(int forca) {
+        this.attackCharacter = forca;
     }
 
     public int getDefense() {
-        return defense;
+        return defenseCharacter;
     }
 
     public void setDefense(int defense) {
-        this.defense = defense;
+        this.defenseCharacter = defenseCharacter;
+    }
+
+    public int getAllAtack(){
+        return attackCharacter + magicItenList.stream().mapToInt(MagicIten::getAttackMagicIten).sum();
+    }
+
+    public int getAllDefense(){
+        return defenseCharacter + magicItenList.stream().mapToInt(MagicIten::getDefenseMagicIten).sum();
     }
 
 }

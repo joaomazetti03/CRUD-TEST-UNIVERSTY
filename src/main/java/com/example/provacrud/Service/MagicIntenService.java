@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MagicIntenService {
@@ -17,8 +18,8 @@ public class MagicIntenService {
         return magicItenRepository.findAll();
     }
 
-    public MagicIten getMagicItenById(Long id) {
-        return magicItenRepository.findById(id).orElse(null);
+    public Optional<MagicIten> getMagicItenById(Long magicItenId) {
+        return magicItenRepository.findById(magicItenId);
     }
 
     public MagicIten insertMagicIten(MagicIten magicIten) {
@@ -27,5 +28,9 @@ public class MagicIntenService {
 
     public MagicIten saveMagicIten(MagicIten magicIten) {
         return magicItenRepository.save(magicIten);
+    }
+
+    public void deleteMagicItenById(Long magicItenId) {
+        magicItenRepository.deleteById(magicItenId);
     }
 }
