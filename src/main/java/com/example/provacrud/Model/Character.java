@@ -65,11 +65,11 @@ public class Character {
         this.attackCharacter = forca;
     }
 
-    public int getDefense() {
+    public int getDefenseCharacter() {
         return defenseCharacter;
     }
 
-    public void setDefense(int defense) {
+    public void setDefenseCharacter(int defense) {
         this.defenseCharacter = defenseCharacter;
     }
 
@@ -81,4 +81,11 @@ public class Character {
         return defenseCharacter + magicItenList.stream().mapToInt(MagicIten::getDefenseMagicIten).sum();
     }
 
+    public List<MagicIten> getMagicItenList() {
+        return magicItenList;
+    }
+
+    public void setMagicItenList(List<MagicIten> magicItenList) {
+        this.magicItenList = magicItenList;
+    }
 }

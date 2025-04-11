@@ -22,6 +22,10 @@ public class MagicIntenService {
         return magicItenRepository.findById(magicItenId);
     }
 
+    public List<MagicIten> findByCharacterId(Long characterId) {
+        return magicItenRepository.findByCharacterId(characterId);
+    }
+
     public MagicIten insertMagicIten(MagicIten magicIten) {
         return magicItenRepository.save(magicIten);
     }

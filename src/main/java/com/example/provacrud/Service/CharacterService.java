@@ -1,6 +1,7 @@
 package com.example.provacrud.Service;
 
 import com.example.provacrud.Model.Character;
+import com.example.provacrud.Model.MagicIten;
 import com.example.provacrud.Repository.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
