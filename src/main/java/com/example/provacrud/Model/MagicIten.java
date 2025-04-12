@@ -1,5 +1,6 @@
 package com.example.provacrud.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,7 +19,10 @@ public class MagicIten {
 
     @ManyToOne
     @JoinColumn(name = "character_id")
+    @JsonBackReference
     private Character character;
+
+    public MagicIten() {}
 
     public Long getMagicItenId() {
         return magicItenId;

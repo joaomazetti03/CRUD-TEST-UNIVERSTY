@@ -1,12 +1,12 @@
 package com.example.provacrud.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "character")
 public class Character {
 
     @Id
@@ -19,11 +19,14 @@ public class Character {
     private CharacterClass characterClass;
 
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<MagicIten> magicItenList = new ArrayList<>();
 
     private int level;
     private int attackCharacter;
     private int defenseCharacter;
+
+    public Character() {}
 
     public Long getId() {
         return id;
