@@ -45,20 +45,33 @@ public class MagicItenController {
         return magicIntenService.getMagicItenById(magicItenId);
     }
 
-    @Operation(description = "")
+    @Operation(description = "Busca item mágico atribuido ao personagem")
     @GetMapping("/character/{characterId}")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Retorna item por personagem com o id"),
+            @ApiResponse(responseCode = "404", description = "Personagem não encontrado")
+    })
     public List<MagicIten> getMagicItenByCharacter(@PathVariable Long characterId) {
         return magicIntenService.findByCharacterId(characterId);
     }
 
+    @Operation(description = "Busca amuleto por personagem")
     @GetMapping("/character/{characterId}/amulet")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Retorna amuleto"),
+            @ApiResponse(responseCode = "404", description = "Amuleto nao encontrado")
+    })
     public MagicIten getAmulet(@PathVariable Long characterId) {
         return magicIntenService.findByCharacterId(characterId).stream()
                 .filter(i -> i.getMagicItenType() == MagicItenType.AMULETO)
                 .findFirst().orElse(null);
     }
 
+    @Operation(description = "Cria o item mágico")
     @PostMapping
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Item criado com sucesso")
+    })
     public String createMagicIten(@RequestBody MagicIten magicIten) {
         if(magicIten.getAttackMagicIten() == 0 && magicIten.getDefenseMagicIten() == 0){return "Item não pode ter força e defesa 0";}
         if(magicIten.getAttackMagicIten() > 10 && magicIten.getDefenseMagicIten() > 10){return "Força e defesa deve ser no máximo 10";}
@@ -70,7 +83,12 @@ public class MagicItenController {
         return "Item mágico criado";
     }
 
+    @Operation(description = "Atribui um item mágico ao personagem")
     @PostMapping("/{magicItenId}/add/{characterId}")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Item atribuido"),
+            @ApiResponse(responseCode = "404", description = "Item ou personagem nao encontrado")
+    })
     public String addItenForCharacter(@PathVariable Long magicItenId, @PathVariable Long characterId) {
         MagicIten magicIten = magicIntenService.getMagicItenById(magicItenId).orElse(null);
         Character character = characterService.getCharacterById(characterId).orElse(null);
@@ -88,7 +106,12 @@ public class MagicItenController {
         return "Item atribuido ao personagem";
     }
 
+    @Operation(description = "Remove item mágico do personagem")
     @DeleteMapping("/{magicItenId}/remove-character")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Item removido"),
+            @ApiResponse(responseCode = "404", description = "Item nao encontrado")
+    })
     public String removeMagicItenFromCharacter(@PathVariable Long magicItenId) {
         MagicIten magicIten = magicIntenService.getMagicItenById(magicItenId).orElse(null);
         if (magicIten == null){return "Item não encontrado";}
@@ -98,7 +121,12 @@ public class MagicItenController {
         return "Item removido do personagem";
     }
 
+    @Operation(description = "Deleta item mágico")
     @DeleteMapping
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Item apagado"),
+            @ApiResponse(responseCode = "404", description = "Item nao encontrado")
+    })
     public void deleteMagicItenById(@PathVariable Long magicItenId) {
         magicIntenService.deleteMagicItenById(magicItenId);
     }
