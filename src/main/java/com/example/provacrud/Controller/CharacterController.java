@@ -46,7 +46,7 @@ public class CharacterController {
     }
 
     @Operation(description = "Cria o personagem")
-    @PostMapping("/create")
+    @PostMapping
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Personagem criado")
     })

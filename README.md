@@ -10,14 +10,6 @@ Exemplo de json para requisções Character:
   "characterName": "Warrior1",
   "adventurerName": "John",
   "characterClass": "WARRIOR",
-  "magicItenList": [
-    {
-      "magicItenName": "Sword of Power",
-      "magicItenType": "ARMA",
-      "attackMagicIten": 5,
-      "defenseMagicIten": 3
-    }
-  ],
   "level": 5,
   "attackCharacter": 3,
   "defenseCharacter": 7
@@ -30,9 +22,6 @@ Exemplo de json para requisições Magic Iten:
   "magicItenName": "Espada Mágica",
   "magicItenType": "ARMA",
   "attackMagicIten": 5,
-  "defenseMagicIten": 0,
-  "character": {
-    "id": 1
-  }
+  "defenseMagicIten": 0
 }
 ```
