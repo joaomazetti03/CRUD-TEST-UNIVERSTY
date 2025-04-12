@@ -1,31 +1,31 @@
 package com.example.provacrud.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class MagicIten {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long magicItenId;
     private String magicItenName;
-    private String typeMagicIten;
+
+    @Enumerated(EnumType.STRING)
+    private MagicItenType magicItenType;
+
     private int attackMagicIten;
     private int defenseMagicIten;
 
-    private enum typeMagicIten {
-        ARMA, ARMADURA, AMULETO;
+    @ManyToOne
+    @JoinColumn(name = "character_id")
+    private Character character;
+
+    public Long getMagicItenId() {
+        return magicItenId;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setMagicItenId(Long magicItenId) {
+        this.magicItenId = magicItenId;
     }
 
     public String getMagicItenName() {
@@ -34,14 +34,6 @@ public class MagicIten {
 
     public void setMagicItenName(String magicItenName) {
         this.magicItenName = magicItenName;
-    }
-
-    public String getTypeMagicIten() {
-        return typeMagicIten;
-    }
-
-    public void setTypeMagicIten(String typeMagicIten) {
-        this.typeMagicIten = typeMagicIten;
     }
 
     public int getAttackMagicIten() {
@@ -58,5 +50,21 @@ public class MagicIten {
 
     public void setDefenseMagicIten(int defenseMagicIten) {
         this.defenseMagicIten = defenseMagicIten;
+    }
+
+    public MagicItenType getMagicItenType() {
+        return magicItenType;
+    }
+
+    public void setMagicItenType(MagicItenType magicItenType) {
+        this.magicItenType = magicItenType;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 }
