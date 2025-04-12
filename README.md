@@ -1,9 +1,9 @@
-# PROVA-ESCOLA-TI
-Prova CRUD para Escola de TI
+# 📜 Personagens & Itens Mágicos - Prova CRUD
+**Data da Documentação:** 11-04-2025
 
-Link para acessar o Swagger: http://localhost:8081/swagger-ui/index.html#/
+**Link para acessar o Swagger:** http://localhost:8081/swagger-ui/index.html#/
 
-Exemplo de json para requisções Character:
+**Exemplo de json para requisções Character:**
 
 ```
 {
@@ -16,7 +16,7 @@ Exemplo de json para requisções Character:
 }
 ```
 
-Exemplo de json para requisições Magic Iten:
+**Exemplo de json para requisições Magic Iten:**
 ```
 {
   "magicItenName": "Espada Mágica",
