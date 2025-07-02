@@ -45,7 +45,7 @@ O projeto utiliza as seguintes tecnologias:
 * **H2 Console**: Para inspecionar o banco de dados em memória H2, acesse:
     [http://localhost:8081/h2-console](http://localhost:8081/h2-console)
     Utilize as seguintes credenciais:
-    * **JDBC URL**: `jdbc:h2:mem:cinema`
+    * **JDBC URL**: `jdbc:h2:mem:test`
     * **User Name**: `sa`
     * **Password**: (deixe em branco)
 
