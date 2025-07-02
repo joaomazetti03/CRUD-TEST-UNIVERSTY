@@ -26,7 +26,7 @@ O projeto utiliza as seguintes tecnologias:
 1.  **Clone o repositório:** (Se o código estiver em um repositório Git, adicione aqui o comando `git clone <URL_DO_REPOSITORIO>`).
 2.  **Navegue até o diretório do projeto:**
     ```bash
-    cd crud-test-universty
+    cd personagens-itensmagicos
     ```
 3.  **Compile o projeto com Maven:**
     ```bash
@@ -43,7 +43,7 @@ O projeto utiliza as seguintes tecnologias:
 * **Swagger UI**: Após iniciar a aplicação, você pode acessar a documentação interativa da API no seu navegador:
     [http://localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html)
 * **H2 Console**: Para inspecionar o banco de dados em memória H2, acesse:
-    [http://localhost:8081/h2-console](http://localhost:8081/h2-test-universty/CRUD-TEST-UNIVERSTY-84c2dbb7c08557f3e044b1c0e6cf160f8a9bb7b6/src/main/resources/application.properties)
+    [http://localhost:8081/h2-console](http://localhost:8081/h2-console)
     Utilize as seguintes credenciais:
     * **JDBC URL**: `jdbc:h2:mem:cinema`
     * **User Name**: `sa`
